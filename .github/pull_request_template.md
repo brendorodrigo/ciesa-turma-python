@@ -1,6 +1,7 @@
 ## Descrição
 ### Atividade ```x```
 ### Aluno(s): ```nome_do_aluno```
+### Curso: ```nome_do_curso```
 
 
 ## Descreva sua linha de raciocínio:
