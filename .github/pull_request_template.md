@@ -1,6 +1,6 @@
 ## Descrição
-### Atividade ```x```
-### Aluno(s): ```nome_do_aluno```
+### Atividade ```Atividade_1```
+### Aluno(s): ```Jordan Pereira da Cunha```
 ### Curso: ```nome_do_curso```
 
 
@@ -8,6 +8,7 @@
 
 ```Explique brevemente como você chegou ao resultado da atividade```
 <!-- Explique brevemente como você chegou ao resultado da atividade -->
+Eu sabia que teria que utilizar dicionario e condicionais para as validações até ai foi tranquilo, mas algumas partes como e do email para verificar o "." depois do "@" tive que ir na documentação e pesquisar algo que fizesse isso e vi a função split, e algo que eu ainda não tinha feito foi o dicionário dentro de um dicionário.
 
 
 ## Checklist
@@ -21,3 +22,4 @@
 ## Observações
 
 <!-- Adicione informações adicionais, dúvidas ou pontos de atenção -->
+Eu acho que tinha como deixar o codigo mais enxuto ;-;
