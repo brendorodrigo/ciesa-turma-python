@@ -12,11 +12,11 @@
 
 ## Checklist
 
-- [ ] O nome do arquivo está no padrão `atividadeX_<nome_do_aluno>.py`?
-- [ ] A atividade está no diretório correto?
-- [ ] Testei meu código e está funcionando?
-- [ ] Comentei na atividade correspondente no Classroom?
-- [ ] Adicionei meu nome na PR (e da minha equipe, se for o caso)?
+- [ x] O nome do arquivo está no padrão `atividadeX_<nome_do_aluno>.py`?
+- [ x] A atividade está no diretório correto?
+- [ x] Testei meu código e está funcionando?
+- [ x] Comentei na atividade correspondente no Classroom?
+- [ x] Adicionei meu nome na PR (e da minha equipe, se for o caso)?
 
 ## Observações
 
