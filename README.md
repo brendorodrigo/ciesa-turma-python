@@ -39,3 +39,34 @@ alunos invalidos:  [{'nome': 'Eva', 'motivos': ['Idade menor que 16 anos']}, {'n
 </pre>
 </ul>
 </details>
+
+<summary>Atividade 2 - Orientação a Objetos - Controle de Projetos</summary>
+<ul>
+<li>Implemente a organização das classes Projetos e Desenvolvedores</li>
+<pre>
+Projeto:
+  Atributos:
+    - Descrição
+    - Prazo em dias
+    - Pontos de função
+    - **Desenvolvedores**
+  Metodos:
+    - adicionar_desenvolvedor
+    - calcular_capacidade_total
+    - verificar_viabilidade
+      - projeto viável
+      - projeto inviável
+</pre>
+<pre>
+Desenvolvedor:
+  - Nome
+  - Senioridade
+  - Pontos por dia
+  - Linguagem
+</pre>
+<li>Crie um Projeto</li>
+<li>Adicione Desenvolvedores ao Projeto</li>
+<li>Validar viabilidade</li>
+
+</ul>
+</details>
