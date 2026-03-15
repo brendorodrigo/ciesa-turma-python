@@ -39,7 +39,6 @@ alunos invalidos:  [{'nome': 'Eva', 'motivos': ['Idade menor que 16 anos']}, {'n
 </pre>
 </ul>
 </details>
-
 <details>
 <summary>Atividade 2 - Orientação a Objetos - Controle de Projetos</summary>
 <ul>
@@ -68,6 +67,34 @@ Desenvolvedor:
 <li>Crie um Projeto</li>
 <li>Adicione Desenvolvedores ao Projeto</li>
 <li>Validar viabilidade</li>
+
+</ul>
+</details>
+<details>
+<summary>Atividade 3 - Orientação a Objetos - Sistema de controle de Biblioteca</summary>
+<ul>
+<li>Implemente a organização das classes Livros e Biblioteca</li>
+<pre>
+Livro:
+  Atributos:
+    - isbn
+    - titulo
+    - autor
+    - ano
+  Metodos:
+    - Cadastrar livro
+</pre>
+<pre>
+Biblioteca:
+  - [Livros] (Array de livros
+  Metodos:
+    - Adiciona livros
+    - Listar Livros
+    - Buscar livros pelo isbn
+</pre>
+<li>Crie varios Livros</li>
+<li>Adicione-os em uma biblioteca</li>
+<li>Teste o metodo de busca de livros</li>
 
 </ul>
 </details>
