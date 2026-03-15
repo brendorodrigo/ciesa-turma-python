@@ -40,6 +40,7 @@ alunos invalidos:  [{'nome': 'Eva', 'motivos': ['Idade menor que 16 anos']}, {'n
 </ul>
 </details>
 
+<details>
 <summary>Atividade 2 - Orientação a Objetos - Controle de Projetos</summary>
 <ul>
 <li>Implemente a organização das classes Projetos e Desenvolvedores</li>
