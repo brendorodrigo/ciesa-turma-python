@@ -1,0 +1,51 @@
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+# Lista inicial de alunos (da Atividade 1)
+alunos = [
+    {"nome": "Brendo", "email": "brendo.matos@ciesa.br", "idade": 32, "curso": "CCP"},
+    {"nome": "Eva", "email": "eva@ciesa.br", "idade": 15, "curso": "ADS"},
+    {"nome": "Ed", "email": "ed@ciesabr", "idade": 12, "curso": "DIR"},
+    {"nome": "João", "email": "joao@cies.abr", "idade": 18, "curso": "ADS"}
+]
+
+cursos = ["CCP", "ADS", "IA", "EGC"]
+
+def validar_aluno(aluno):
+    motivos = []
+
+    if len(aluno["nome"]) < 3:
+        motivos.append("Nome com menos de 3 caracteres")
+
+    if "@" not in aluno["email"] or "." not in aluno["email"].split("@")[-1]:
+        motivos.append("Email inválido")
+
+    if aluno["idade"] < 16:
+        motivos.append("Idade menor que 16 anos")
+
+    if aluno["curso"] not in cursos:
+        motivos.append("Curso não disponível")
+
+    return motivos
+
+
+@app.route("/alunos", methods=["GET"])
+def get_alunos():
+    return jsonify(alunos)
+
+
+@app.route("/alunos", methods=["POST"])
+def add_aluno():
+    novo_aluno = request.get_json()
+    motivos = validar_aluno(novo_aluno)
+
+    if motivos:
+        return jsonify({"status": "inválido", "motivos": motivos}), 400
+    else:
+        alunos.append(novo_aluno)
+        return jsonify({"status": "válido", "aluno": novo_aluno}), 201
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
