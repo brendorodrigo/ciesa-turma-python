@@ -1,0 +1,48 @@
+class Livro:
+    def __init__(self, isbn, titulo, autor, ano):
+        self.isbn = isbn
+        self.titulo = titulo
+        self.autor = autor
+        self.ano = ano
+
+    def __repr__(self):
+        return f"{self.titulo} ({self.ano}) - {self.autor}"
+
+
+class Biblioteca:
+    def __init__(self):
+        self.livros = []
+
+    def cadastrar_livro(self, livro):
+        self.livros.append(livro)
+
+    def listar_livros(self):
+        return self.livros
+
+    def buscar_por_isbn(self, isbn):
+        for livro in self.livros:
+            if livro.isbn == isbn:
+                return livro
+        return None
+
+
+if __name__ == "__main__":
+    # Criando livros
+    livro1 = Livro("001", "Python Básico", "Brendo", 2020)
+    livro2 = Livro("002", "Java Avançado", "Eva", 2018)
+    livro3 = Livro("003", "Banco de Dados", "Rodrigo", 2021)
+
+    # Criando biblioteca
+    biblioteca = Biblioteca()
+
+    # Cadastrando livros
+    biblioteca.cadastrar_livro(livro1)
+    biblioteca.cadastrar_livro(livro2)
+    biblioteca.cadastrar_livro(livro3)
+
+    # Listando livros
+    print("Livros cadastrados:", biblioteca.listar_livros())
+
+    # Buscando livro por ISBN
+    resultado = biblioteca.buscar_por_isbn("002")
+    print("Busca por ISBN 002:", resultado)
