@@ -1,57 +1,59 @@
-# Lista de alunos
-alunos = [
-    {"nome": "Leonardo", "email": "leonardo@ciesa.br", "idade": 22, "curso": "CCP"},
-    {"nome": "Moanna", "email": "moanna@ciesa.br", "idade": 36, "curso": "CCP"},
-    {"nome": "Dassayeff", "email": "dassa@ciesa.br", "idade": 22, "curso": "CCP"},
-    {"nome": "Jhemesson", "email": "jhemesson@ciesa.br", "idade": 18, "curso": "CCP"},
-    {"nome": "Ivi", "email": "ivi9456email.br", "idade": 15, "curso": " "},
-    {"nome": "Deborá", "email": "deborá@gmailcom", "idade": 25, "curso": "PSI"},
-    {"nome": "Maria", "email": "mariaclara@ciesa.br", "idade": 23, "curso": "CCP"},
-    {"nome": "JP", "email": "jp@ciesa.br", "idade": 18, "curso": "CCP"}
-]
+class Livro:
+    def __init__(self, isbn, titulo, autor, ano):
+        self.isbn = isbn
+        self.titulo = titulo
+        self.autor = autor
+        self.ano = ano
 
-# Lista de cursos disponíveis
-cursos_disponiveis = ["CCP", "ADS", "IA", "EGC"]
+    def __str__(self):
+        return f"ISBN: {self.isbn} | Título: {self.titulo} | Autor: {self.autor} ({self.ano})"
 
 
-def validar_alunos(lista_alunos):
-    alunos_validos = []
-    alunos_invalidos = []
+class Biblioteca:
+    def __init__(self):
+        self.livros = []  # Array (lista) de livros
 
-    for aluno in lista_alunos:
-        motivos = []
+    def adicionar_livro(self, livro):
+        self.livros.append(livro)
+        print(f"Livro '{livro.titulo}' adicionado com sucesso!")
 
-        # Validação do nome
-        if len(aluno["nome"]) < 3:
-            motivos.append("Nome com menos de 3 caracteres")
+    def listar_livros(self):
+        print("\n--- Catálogo da Biblioteca ---")
+        if not self.livros:
+            print("A biblioteca está vazia.")
+        for livro in self.livros:
+            print(livro)
 
-        # Validação do email
-        email = aluno["email"]
-        if "@" not in email or "." not in email.split("@")[-1]:
-            motivos.append("Email inválido")
-
-        # Validação da idade
-        if aluno["idade"] < 16:
-            motivos.append("Idade menor que 16 anos")
-
-        # Validação do curso
-        if aluno["curso"] not in cursos_disponiveis:
-            motivos.append("Curso não disponível")
-
-        # Separação entre válidos e inválidos
-        if len(motivos) == 0:
-            alunos_validos.append(aluno)
-        else:
-            alunos_invalidos.append({
-                "nome": aluno["nome"],
-                "motivos": motivos
-            })
-
-    return alunos_validos, alunos_invalidos
+    def buscar_por_isbn(self, isbn_busca):
+        for livro in self.livros:
+            if livro.isbn == isbn_busca:
+                return livro
+        return None
 
 
-# Executando a função
-validos, invalidos = validar_alunos(alunos)
+# Criando a instância da Biblioteca
+minha_biblioteca = Biblioteca()
 
-print("alunos validos:", validos)
-print("alunos invalidos:", invalidos)
+# Criando vários livros
+livro1 = Livro("978-1", "Algoritmos e Estruturas de Dados", "Guimarães", 2021)
+livro2 = Livro("978-2", "Clean Code", "Robert C. Martin", 2008)
+livro3 = Livro("978-3", "Banco de Dados Relacional", "Navathe", 2011)
+
+# Adicionando-os na biblioteca
+minha_biblioteca.adicionar_livro(livro1)
+minha_biblioteca.adicionar_livro(livro2)
+minha_biblioteca.adicionar_livro(livro3)
+
+# Listando todos para conferir
+minha_biblioteca.listar_livros()
+
+# Testando o método de busca
+print("\n--- Teste de Busca ---")
+isbn_para_testar = "978-2"
+resultado = minha_biblioteca.buscar_por_isbn(isbn_para_testar)
+
+if resultado:
+    print(f"Resultado da busca para ISBN {isbn_para_testar}:")
+    print(f"-> {resultado.titulo} ({resultado.autor})")
+else:
+    print(f"Livro com ISBN {isbn_para_testar} não encontrado.")
