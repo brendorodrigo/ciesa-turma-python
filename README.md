@@ -98,3 +98,12 @@ Biblioteca:
 
 </ul>
 </details>
+
+<details>
+<summary>Atividade 4 - Flask Framework</summary>
+<ul>
+<li>Provisione a atividade 1 como uma API</li>
+<pre>
+GET /alunos (Retorna lista de alunos da atividade 1)
+POST /alunos (Recebe um objeto de Aluno e valida de acordo com as regras da atividade 1)
+</details>
