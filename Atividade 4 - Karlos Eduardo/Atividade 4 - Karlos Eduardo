@@ -1,0 +1,44 @@
+from flask import Flask, jsonify, request
+
+app = Flask(__name__)
+
+
+aluno1 = {"nome": "Brendo", "email": "brendo.matos@ciesa.br", "idade": 32, "curso": "CCP"}
+aluno2 = {"nome": "Eva", "email": "eva@ciesa.br", "idade": 15, "curso": "ADS"}
+aluno3 = {"nome": "Ed", "email": "ed@ciesabr", "idade": 12, "curso": "DIR"}
+aluno4 = {"nome": "Joao", "email": "joao@cies.abr", "idade": 18, "curso": "ADS"}
+list1 = [aluno1, aluno2, aluno3, aluno4]
+cursos = ["CCP", "ADS", "IA", "EGC"]
+
+
+def validacao(aluno):
+    erros = []
+    if len(aluno.get("nome", "")) < 3:
+        erros.append("Nome invalido")
+    if "@" not in aluno.get("email", ""):
+        erros.append("Email invalido")
+    if aluno.get("idade", 0) < 16:
+        erros.append("Idade invalida")
+    return erros
+
+@app.route("/alunos", methods=["GET"])
+def get_alunos():
+    return jsonify(list1), 200
+
+
+@app.route("/alunos", methods=["POST"])
+def post_aluno():
+    novo_aluno = request.get_json()
+
+    if not novo_aluno:
+        return jsonify({"erro": "Corpo da requisição vazio"}), 400
+
+    erros = validacao(novo_aluno)
+
+    if erros:
+        return jsonify({"status": "erro", "mensagens": erros}), 400
+
+    list1.append(novo_aluno)
+    return jsonify(novo_aluno), 201
+if __name__ == "__main__":
+    app.run()
